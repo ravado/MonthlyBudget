@@ -1,4 +1,6 @@
-﻿using MonthlyBudget.Phone.Common;
+﻿using MonthlyBudget.Common.Services;
+using MonthlyBudget.Phone.AL.Pages;
+using MonthlyBudget.Phone.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +20,8 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
+using MonthlyBudget.Phone.Utils;
+using TinyIoC;
 
 namespace MonthlyBudget.Phone
 {
@@ -27,7 +31,7 @@ namespace MonthlyBudget.Phone
     public sealed partial class App : Application
     {
         private TransitionCollection transitions;
-
+        private static TinyIoC.TinyIoCContainer _ioc;
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -36,6 +40,15 @@ namespace MonthlyBudget.Phone
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+
+            InitializeIoC();
+        }
+
+        private void InitializeIoC()
+        {
+            _ioc = new TinyIoCContainer();
+
+            _ioc.Register<ILog, ConsoleLog>();
         }
 
         /// <summary>
@@ -104,7 +117,7 @@ namespace MonthlyBudget.Phone
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter.
-                if (!rootFrame.Navigate(typeof(PivotPage), e.Arguments))
+                if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }

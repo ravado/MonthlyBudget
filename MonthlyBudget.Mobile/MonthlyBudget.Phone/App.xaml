@@ -1,7 +1,37 @@
 ﻿<Application
-    x:Class="MonthlyBudget.Phone.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MonthlyBudget.Phone">
+    
+    
+    
+    
+    
+    x:Class="MonthlyBudget.Phone.App"
+    >
+
+	<Application.Resources>
+		<!--<SampleData:BudgetSampleDataSource x:Key="BudgetSampleDataSource" d:IsDataSource="True"/>-->
+<!--<monthlyBudgetSampleDataSource:MonthlyBudgetSampleDataSource x:Key="MonthlyBudgetSampleDataSource" d:IsDataSource="True"/>-->
+        <!--<DataTemplate x:Key="AvaibleFoodParticipantItemTemplate">
+        	<Grid HorizontalAlignment="Stretch">
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="80"/>
+        			<ColumnDefinition Width="*"/>
+        		</Grid.ColumnDefinitions>
+        		<TextBlock 
+        			Grid.Column="0"
+        			HorizontalAlignment="Stretch"
+        			VerticalAlignment="Center"
+        			FontSize="30"
+        			Text="{Binding Money.Value}"/>
+        		<TextBlock 
+        			Grid.Column="1"
+        			HorizontalAlignment="Stretch"
+        			VerticalAlignment="Center"
+        			FontSize="30"
+        			Text="{Binding Name}"/>
+        	</Grid>
+        </DataTemplate>-->
+    </Application.Resources>
 
 </Application>
